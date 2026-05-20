@@ -1,4 +1,5 @@
 
+%%writefile app.py
 import streamlit as st
 import pandas as pd
 import os
@@ -37,7 +38,9 @@ if uploaded_file:
     # User query
     query = st.text_input("Ask questions about your data:")
 
-    if query:
+    query = st.text_input("Ask questions about your data:")
+
+if query:
     with st.spinner("Analyzing..."):
         response = agent.run(query)
         st.success(response)
@@ -45,3 +48,4 @@ if uploaded_file:
 # Now, run the Streamlit app. This cell will save the content above to 'app.py'
 # Then, the following shell commands will run the Streamlit app and create a public URL.
 # Remember to set your GROQ_API_KEY in Colab Secrets before running this.
+
